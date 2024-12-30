@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'general';
+    src: url('/assets/fonts/general.woff2') format('woff2');
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,4 +25,34 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+.max-container {
+  @apply mx-auto max-w-[1440px];
+}
+
+.about-subtext {
+  @apply absolute  left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-general text-lg md:max-w-[34rem];
+}
+
+.padding-container {
+
+}
+
+.flexCenter {
+  @apply flex items-center justify-center;
+}
+
+.flexBetween {
+  @apply flex items-center justify-between;
+}
+
+.flexStart {
+  @apply flex items-center justify-start;
+}
+
+.flexEnd {
+  @apply flex items-center justify-end;
+}
+.btn-brand {
+  @apply rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5
 }
