@@ -22,21 +22,6 @@ export function Footer() {
                     Home
                   </Link>
                 </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:underline">
-                    Contact
-                  </Link>
-                </li>
               </ul>
             </div>
             <div>

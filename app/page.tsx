@@ -1,9 +1,29 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useState } from "react"
+import { submitEmail } from "./actions/submitEmail"
+import { Message } from "@/components/Message"
 
 export default function Home() {
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const result = await submitEmail(email)
+    setMessage({
+      type: result.success ? "success" : "error",
+      text: result.message,
+    })
+    if (result.success) {
+      setEmail("")
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#ff7400]">
       <div className="mx-auto max-w-7xl">
@@ -13,29 +33,6 @@ export default function Home() {
             <div className="h-6 w-6 bg-white rounded" />
             <span className="text-xl font-semibold text-white">Scrabble</span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
-            <Link className="text-sm font-medium text-white hover:text-white/70" href="#">
-              Home
-            </Link>
-            <Link className="text-sm font-medium text-white hover:text-white/70" href="#">
-              Features
-            </Link>
-            <Link className="text-sm font-medium text-white hover:text-white/70" href="#">
-              Use cases
-            </Link>
-            <Link className="text-sm font-medium text-white hover:text-white/70" href="#">
-              Pricing
-            </Link>
-            <Link className="text-sm font-medium text-white hover:text-white/70" href="#">
-              Contact
-            </Link>
-          </div>
-          <Button
-            variant="outline"
-            className="bg-white hover:bg-white/90 text-[#ff7400] border-white hover:text-[#ff7400]/90"
-          >
-            Login
-          </Button>
         </nav>
 
         {/* Hero Section */}
@@ -53,17 +50,19 @@ export default function Home() {
                 Find the perfect software tools for your workflow. Join our waitlist to discover and optimize your
                 productivity stack.
               </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md">
+              <form className="flex flex-col sm:flex-row gap-4 max-w-md" onSubmit={handleSubmit}>
                 <Input
                   type="email"
                   placeholder="Enter your email"
                   className="bg-white/95 border-white placeholder:text-gray-500 text-black"
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <Button className="bg-black hover:bg-black/90 text-white border-2 border-transparent hover:border-white transition-colors">
+                <Button className="bg-black hover:bg-black/90 text-white border-2 border-transparent hover:border-white transition-colors" type="submit">
                   Join Waitlist
                 </Button>
               </form>
+              {message && <Message type={message.type}>{message.text}</Message>}
             </div>
             <div className="relative h-[400px] md:h-[500px]">
               <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-sm" />
