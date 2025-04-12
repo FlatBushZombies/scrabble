@@ -10,8 +10,7 @@ import { LineChart as Chart } from "@/components/line-chart"
 
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-400 to-violet-600 p-4">
-      <div className="mx-auto max-w-7xl rounded-xl bg-white p-6 shadow-lg">
+      <div className="min-h-screen  mx-auto max-w-7xl rounded-xl bg-white p-6 shadow-lg">
         <div className="grid grid-cols-[240px_1fr] gap-6">
           {/* Sidebar */}
           <aside className="space-y-6">
@@ -194,7 +193,6 @@ export default function DashboardPage() {
           </main>
         </div>
       </div>
-    </div>
   )
 }
 

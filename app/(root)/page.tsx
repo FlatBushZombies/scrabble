@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import WordRotate from "@/components/ui/word-rotate"
+import { Input } from "@/components/ui/input"
 import {
   Home,
   Settings,
@@ -18,8 +19,10 @@ import {
   Star,
   ArrowUpRight,
   Users,
+  PlusCircle
 } from "lucide-react"
 import Features from "@/components/Features"
+import WorkflowFeed from "@/components/workflow-feed"
 
 export default function Page() {
   return (
@@ -59,6 +62,22 @@ export default function Page() {
           </svg>
         </Button>
       </header>
+
+
+      <div className="max-w-2xl mx-auto mb-8 relative mt-8">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <div className="relative flex-grow">
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+                      <Input placeholder="What kind of tool are you looking for?" className="pl-10 h-12 text-base" />
+                    </div>
+                    <Button size="lg" className="h-12">
+                      Search
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-2 text-left sm:text-center">
+                    Try: "Collaboration tools for remote teams" or "Design tools for beginners"
+                  </p>
+      </div>
 
       {/* Hero Section */}
       <main className="px-4 py-12 max-w-7xl mx-auto">
@@ -125,6 +144,18 @@ export default function Page() {
             />
           </div>
         </div>
+        <div className="container max-w-4xl py-6 space-y-8">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold">Workflow Feed</h1>
+        <Link href="/create">
+          <Button>
+            <PlusCircle className="mr-2 h-4 w-4" />
+            Create Workflow
+          </Button>
+        </Link>
+      </div>
+      <WorkflowFeed />
+    </div>
 
         {/* Bottom Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -382,6 +413,7 @@ function PlatformCard({
         </div>
       </div>
     </Card>
+    
   )
 }
 

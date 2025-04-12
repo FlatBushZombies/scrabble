@@ -78,46 +78,14 @@ body {
   .max-container {
     @apply mx-auto max-w-[1440px];
   }
+  .workflow_head-res {
+    @apply max-2xl:mr-6 max-xl:mr-3 max-lg:mx-auto max-lg:mb-36 max-lg:max-w-330 max-lg:text-center max-md:mb-24 max-md:max-w-52;
+  }
 
   .padding-container {
     @apply px-6  ;
       /* START of Gradients */
-  
-  .g1 {
-    background: linear-gradient(rgba(196, 203, 245, 0.5), transparent);
-  }
 
-  .g2 {
-    background: linear-gradient(#3062a3, #19549f);
-  }
-
-  .g3 {
-    background: linear-gradient(#3c52d9, #0c1838);
-  }
-
-  .g4 {
-    background: linear-gradient(#253575, #162561);
-  }
-
-  .g5 {
-    background: linear-gradient(#334679, #162561);
-  }
-
-  .g6 {
-    background: linear-gradient(#334679, #0c1838);
-  }
-
-  .g7 {
-    background: linear-gradient(#1b275a, #0e1434);
-  }
-
-  .g8 {
-    background: linear-gradient(to right, transparent, #2ef2ff, transparent);
-  }
-
-  .g9 {
-    background: linear-gradient(#080d27, transparent);
-  }
   }
     /*  START of Demo*/
     .download_tech-link_last-before {
