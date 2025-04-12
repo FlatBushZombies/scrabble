@@ -11,7 +11,13 @@ import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import type { Workflow } from "@/components/workflow-feed"
 
-export default function WorkflowDetail({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function WorkflowDetail({ params }: PageProps ) {
   const router = useRouter()
   const [workflow, setWorkflow] = useState<Workflow | null>(null)
   const [loading, setLoading] = useState(true)
