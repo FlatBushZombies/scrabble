@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server"
 
-// In-memory database for demo purposes
-// In a real app, you would use a database like MongoDB, PostgreSQL, etc.
-let workflows = [
+// This would normally be imported from a shared data layer
+// For demo purposes, we're duplicating the data here
+const workflows = [
   {
     id: "1",
     title: "Morning Productivity Routine",
@@ -65,39 +65,20 @@ let workflows = [
   },
 ]
 
-export async function GET() {
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 500))
+  await new Promise((resolve) => setTimeout(resolve, 300))
 
-  return NextResponse.json(workflows)
-}
+  const workflow = workflows.find((w) => w.id === params.id)
 
-export async function POST(request: Request) {
-  const data = await request.json()
-
-  // Validate required fields
-  if (!data.title || !data.description || !data.steps || data.steps.length === 0) {
-    return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
+  if (!workflow) {
+    return NextResponse.json({ error: "Workflow not found" }, { status: 404 })
   }
 
-  // Create new workflow
-  const newWorkflow = {
-    id: Date.now().toString(),
-    title: data.title,
-    description: data.description,
-    steps: data.steps,
-    author: {
-      name: "Current User", // In a real app, this would come from the authenticated user
-      avatar: "/placeholder.svg?height=40&width=40",
-    },
-    likes: 0,
-    comments: 0,
-    createdAt: new Date().toISOString(),
-  }
-
-  // Add to our "database"
-  workflows = [newWorkflow, ...workflows]
-
-  return NextResponse.json(newWorkflow, { status: 201 })
+  return NextResponse.json(workflow)
 }
+  
 
