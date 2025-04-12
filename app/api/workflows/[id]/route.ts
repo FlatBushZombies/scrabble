@@ -65,7 +65,7 @@ const workflows = [
   },
 ]
 
-/* export async function GET(request: Request, { params }: { params: { id: string } }) {
+ export async function GET(request: Request, { params }: { params: { id: string } }) {
   // Simulate network delay
   await new Promise((resolve) => setTimeout(resolve, 300))
 
