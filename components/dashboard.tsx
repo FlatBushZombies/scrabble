@@ -25,7 +25,6 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import WorkflowCard from "@/components/workflow-card"
 import FeaturedTools from "@/components/featured-tools"
 import TrendingUsers from "@/components/trending-users"
 import RecommendedTools from "@/components/recommended-tools"
@@ -177,56 +176,7 @@ export default function Dashboard() {
                     <h3 className="mb-4 mt-8 text-xl font-bold">Workflow Feed</h3>
                     <ScrollArea className="h-[calc(100vh-26rem)] pr-4">
                       <div className="space-y-4">
-                        <WorkflowCard
-                          username="sarah_dev"
-                          avatar="/placeholder.svg?height=40&width=40"
-                          time="2h ago"
-                          title="AI-Powered Content Generation Pipeline"
-                          description="A workflow that combines GPT-4 with custom data sources for automated content creation."
-                          tags={["AI", "Content", "Automation"]}
-                          likes={42}
-                          comments={12}
-                        />
-                        <WorkflowCard
-                          username="tech_wizard"
-                          avatar="/placeholder.svg?height=40&width=40"
-                          time="5h ago"
-                          title="Data Visualization Dashboard Setup"
-                          description="Complete workflow for setting up interactive dashboards with real-time data processing."
-                          tags={["Data", "Visualization", "Dashboard"]}
-                          likes={38}
-                          comments={7}
-                        />
-                        <WorkflowCard
-                          username="code_ninja"
-                          avatar="/placeholder.svg?height=40&width=40"
-                          time="Yesterday"
-                          title="CI/CD Pipeline for Microservices"
-                          description="Streamlined continuous integration and deployment workflow for microservice architectures."
-                          tags={["DevOps", "CI/CD", "Microservices"]}
-                          likes={76}
-                          comments={23}
-                        />
-                        <WorkflowCard
-                          username="design_pro"
-                          avatar="/placeholder.svg?height=40&width=40"
-                          time="2 days ago"
-                          title="Design System Automation"
-                          description="Workflow that automates the creation and maintenance of design systems across platforms."
-                          tags={["Design", "Automation", "UI/UX"]}
-                          likes={54}
-                          comments={18}
-                        />
-                        <WorkflowCard
-                          username="data_scientist"
-                          avatar="/placeholder.svg?height=40&width=40"
-                          time="3 days ago"
-                          title="ML Model Training Pipeline"
-                          description="End-to-end workflow for training and deploying machine learning models with minimal setup."
-                          tags={["ML", "AI", "Data Science"]}
-                          likes={92}
-                          comments={31}
-                        />
+              
                       </div>
                     </ScrollArea>
                   </TabsContent>
