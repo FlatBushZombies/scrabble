@@ -22,7 +22,8 @@ import {
   PlusCircle
 } from "lucide-react"
 import Features from "@/components/Features"
-import WorkflowFeed from "@/components/workflow-feed"
+import WorkFlowCard from "@/components/WorkFlowCard"
+import { workflows } from "@/constants"
 
 export default function Page() {
   return (
@@ -145,16 +146,9 @@ export default function Page() {
           </div>
         </div>
         <div className="container max-w-4xl py-6 space-y-8">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Workflow Feed</h1>
-        <Link href="/create">
-          <Button>
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Create Workflow
-          </Button>
-        </Link>
-      </div>
-      <WorkflowFeed />
+          {workflows.map((workflow) => (
+            <WorkFlowCard {...workflow} key={workflow.id}/>
+          ))}
     </div>
 
         {/* Bottom Section */}
