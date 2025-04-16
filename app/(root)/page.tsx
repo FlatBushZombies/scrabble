@@ -145,7 +145,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className="container max-w-4xl py-6 space-y-8">
+        <div className="flex flex-col max-w-4xl py-6 space-y-8">
           {workflows.map((workflow) => (
             <WorkFlowCard {...workflow} key={workflow.id}/>
           ))}

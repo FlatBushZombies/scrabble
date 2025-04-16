@@ -87,6 +87,18 @@ body {
   }
 }
 
+@layer components {
+  .card-border {
+    @apply bg-gradient-to-b from-[#4B4D4F] to-[#4B4D4F33] p-0.5 rounded-2xl w-fit;
+  }
+  .card-workflow {
+    @apply bg-gradient-to-b from-[#1A1C20] to-[#08090D] rounded-2xl min-h-full flex flex-col p-6 relative overflow-hidden gap-10 justify-between;
+  }
+  .badge-text {
+    @apply text-sm font-semibold capitalize;
+  }
+}
+
 @layer utilities {
   .btn_orange {
     @apply border-white bg-[#FCAD55] text-white transition-all hover:bg-black
@@ -135,6 +147,5 @@ body {
     .download_preview-dot {
       @apply absolute top-6 size-2.5 rounded-[10px];
     }
-  
     /*  END of Demo*/
 }
