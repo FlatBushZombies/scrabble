@@ -19,11 +19,9 @@ import {
   Star,
   ArrowUpRight,
   Users,
-  PlusCircle
 } from "lucide-react"
 import Features from "@/components/Features"
-import WorkFlowCard from "@/components/WorkFlowCard"
-import { workflows } from "@/constants"
+import CreatorWorkFlow from "@/components/CreatorWorkFlow"
 
 export default function Page() {
   return (
@@ -145,11 +143,11 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className="flex flex-col max-w-4xl py-6 space-y-8">
-          {workflows.map((workflow) => (
-            <WorkFlowCard {...workflow} key={workflow.id}/>
-          ))}
+        
+        <div>
+        <CreatorWorkFlow />
     </div>
+    
 
         {/* Bottom Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-12">
