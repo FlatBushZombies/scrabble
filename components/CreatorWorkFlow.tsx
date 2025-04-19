@@ -160,13 +160,9 @@ export default function CreatorWorkFlow() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mt-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold tracking-tight">Popular Creator Workflows</h2>
-        <Button variant="outline" className="gap-1">
-          <TrendingUp className="h-4 w-4" />
-          View All
-        </Button>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

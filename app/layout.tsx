@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Scrabble - Discovery Dashboard ",
+  title: "Scrabble | Discovery Dashboard ",
   description: "Cross Platform Tooling App",
 };
 
