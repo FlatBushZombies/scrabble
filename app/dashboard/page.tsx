@@ -25,7 +25,6 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-import WorkFlowCard from "@/components/WorkFlowCard"
 import FeaturedTools from "@/components/featured-tools"
 import TrendingUsers from "@/components/trending-users"
 import RecommendedTools from "@/components/recommended-tools"
