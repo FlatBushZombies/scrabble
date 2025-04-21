@@ -1,6 +1,4 @@
-"use client"
 
-import { useState } from "react"
 import { Compass, Heart, Home, Layers, MessageSquare, Search, Settings, Star, User, Users, Zap } from "lucide-react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -28,9 +26,12 @@ import {
 import FeaturedTools from "@/components/featured-tools"
 import TrendingUsers from "@/components/trending-users"
 import RecommendedTools from "@/components/recommended-tools"
+import { currentUser } from "@clerk/nextjs/server"
 
-export default function Dashboard() {
-  const [searchQuery, setSearchQuery] = useState("")
+export default async function Dashboard() {
+  
+
+  const user = await currentUser();
 
   return (
     <SidebarProvider>
@@ -133,8 +134,8 @@ export default function Dashboard() {
               <Input
                 placeholder="Search tools and workflows..."
                 className="pl-8"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                value="Search Term"
+                
               />
             </div>
             <Button variant="outline" size="sm">
@@ -151,7 +152,7 @@ export default function Dashboard() {
                 <Card className="mb-8 overflow-hidden bg-gradient-to-r from-purple-900 to-violet-700 text-white">
                   <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center">
                     <div className="space-y-2">
-                      <h2 className="text-2xl font-bold">Discover, Create, and Share Workflows</h2>
+                      <h2 className="text-2xl font-bold">{user?.firstName}Discover, Create, and Share Workflows</h2>
                       <p className="text-purple-100">Find the best tools and workflows for your projects</p>
                       <Button className="mt-2 bg-white text-purple-900 hover:bg-purple-100">Explore Tools</Button>
                     </div>
