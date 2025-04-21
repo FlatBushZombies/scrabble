@@ -45,7 +45,8 @@ export default function Page() {
             Entreprises
           </Link>
         </nav>
-        <Button className="bg-primary hover:bg-[#daf149] text-black">
+        <Button asChild size="lg" className="bg-primary hover:bg-[#daf149] text-black">
+          <Link href='/sign-in'>
           Sign In
           <svg
             className="w-4 h-4 ml-2"
@@ -58,6 +59,7 @@ export default function Page() {
           >
             <path d="M5 12h14m-7-7 7 7-7 7" />
           </svg>
+          </Link>
         </Button>
       </header>
 
