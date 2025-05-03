@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import WordRotate from "@/components/ui/word-rotate"
 import { Input } from "@/components/ui/input"
+import DisplayCards from "@/components/display-cards"
 import {
   Settings,
   CreditCard,
@@ -15,12 +16,45 @@ import {
   Star,
   ArrowUpRight,
   Users,
-} from "lucide-react"
+  Sparkles} from "lucide-react"
 import Features from "@/components/Features"
 import CreatorWorkFlow from "@/components/CreatorWorkFlow"
 import CategoryFilter from "@/components/CategoryFilter"
 import ProductGrid from "@/components/ProductGrid"
 import { Suspense } from "react"
+
+const defaultCards = [
+  {
+    icon: <Sparkles className="size-4 text-blue-300" />,
+    title: "Featured",
+    description: "Discover amazing content",
+    date: "Just now",
+    iconClassName: "text-blue-500",
+    titleClassName: "text-blue-500",
+    className:
+      "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+  },
+  {
+    icon: <Sparkles className="size-4 text-blue-300" />,
+    title: "Popular",
+    description: "Trending this week",
+    date: "2 days ago",
+    iconClassName: "text-blue-500",
+    titleClassName: "text-blue-500",
+    className:
+      "[grid-area:stack] translate-x-12 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+  },
+  {
+    icon: <Sparkles className="size-4 text-blue-300" />,
+    title: "New",
+    description: "Latest updates and features",
+    date: "Today",
+    iconClassName: "text-blue-500",
+    titleClassName: "text-blue-500",
+    className:
+      "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
+  },
+];
 
 export default function Page() {
   return (
@@ -135,13 +169,11 @@ export default function Page() {
             </div>
           </div>
           <div className="relative">
-            <Image
-              src="/assets/screen.jpg"
-              alt="Banking app interface showing balance and transactions"
-              width={600}
-              height={600}
-              className="rounded-lg"
-            />
+          <div className="flex min-h-[400px] w-full items-center justify-center py-20">
+      <div className="w-full max-w-3xl">
+        <DisplayCards cards={defaultCards} />
+      </div>
+    </div>
           </div>
         </div>
         
