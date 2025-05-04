@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import WordRotate from "@/components/ui/word-rotate"
 import { Input } from "@/components/ui/input"
 import DisplayCards from "@/components/display-cards"
+import { useUser } from "@clerk/nextjs"
 import {
   Settings,
   CreditCard,
@@ -57,6 +58,7 @@ const defaultCards = [
 ];
 
 export default function Page() {
+  const isSignedIn = useUser()
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -79,22 +81,26 @@ export default function Page() {
             Entreprises
           </Link>
         </nav>
-        <Button asChild size="lg" className="bg-primary hover:bg-[#daf149] text-black">
-          <Link href='/sign-in'>
-          Sign In
-          <svg
-            className="w-4 h-4 ml-2"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M5 12h14m-7-7 7 7-7 7" />
-          </svg>
-          </Link>
-        </Button>
+        <Button
+      asChild
+      size="lg"
+      className="bg-primary hover:bg-[#daf149] text-black"
+    >
+      <Link href={isSignedIn ? "/dashboard" : "/sign-in"}>
+        {isSignedIn ? "Dashboard" : "Sign In"}
+        <svg
+          className="w-4 h-4 ml-2"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 12h14m-7-7 7 7-7 7" />
+        </svg>
+      </Link>
+    </Button>
       </header>
 
 
