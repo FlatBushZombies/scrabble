@@ -23,6 +23,7 @@ import CreatorWorkFlow from "@/components/CreatorWorkFlow"
 import CategoryFilter from "@/components/CategoryFilter"
 import ProductGrid from "@/components/ProductGrid"
 import { Suspense } from "react"
+import AuthButton from "@/components/AuthButton"
 
 const defaultCards = [
   {
@@ -81,26 +82,7 @@ export default function Page() {
             Entreprises
           </Link>
         </nav>
-        <Button
-      asChild
-      size="lg"
-      className="bg-primary hover:bg-[#daf149] text-black"
-    >
-      <Link href={isSignedIn ? "/dashboard" : "/sign-in"}>
-        {isSignedIn ? "Dashboard" : "Sign In"}
-        <svg
-          className="w-4 h-4 ml-2"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M5 12h14m-7-7 7 7-7 7" />
-        </svg>
-      </Link>
-    </Button>
+        <AuthButton />
       </header>
 
 
