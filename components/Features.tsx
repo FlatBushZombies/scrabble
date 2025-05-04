@@ -1,25 +1,75 @@
-import React from 'react'
-import { features } from '@/constants'
-
+import {
+  Blocks,
+  Bot,
+  ChartPie,
+  Film,
+  MessageCircle,
+  Settings2,
+} from "lucide-react";
+import React from "react";
+const features = [
+  {
+    icon: Settings2,
+    title: "Customizable Layouts",
+    description:
+      "Design your space with drag-and-drop simplicity—create grids, lists, or galleries in seconds.",
+  },
+  {
+    icon: Blocks,
+    title: "Interactive Widgets",
+    description:
+      "Embed polls, quizzes, or forms to keep your audience engaged.",
+  },
+  {
+    icon: Bot,
+    title: "AI-Powered Tools",
+    description:
+      "Generate summaries, auto-format content, or translate into multiple languages seamlessly.",
+  },
+  {
+    icon: Film,
+    title: "Media Integrations",
+    description:
+      "Connect with Spotify, Instagram, or your own media library for dynamic visuals and sound.",
+  },
+  {
+    icon: ChartPie,
+    title: "Advanced Analytics",
+    description:
+      "Track engagement, clicks, and user activity with intuitive charts and reports.",
+  },
+  {
+    icon: MessageCircle,
+    title: "Seamless Collaboration",
+    description:
+      "Comment, tag, and assign tasks directly within your documents.",
+  },
+];
 const Features = () => {
   return (
-    <section id="features" className="py-20 bg-gray-50">
-    <div className="container mx-auto px-4">
-      <h2 className="text-3xl font-bold text-center mb-12">Our Key Features</h2>
-      <div className="grid md:grid-cols-3 gap-8">
-        {features.map((feature, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-lg transition-transform hover:scale-105">
-            <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center mb-4`}>
-              <feature.icon className="w-8 h-8" />
+    <div className="min-h-screen flex items-center justify-center py-12">
+      <div>
+        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-center">
+          Unleash Your Creativity
+        </h2>
+        <div className="mt-10 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto px-6">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="flex flex-col border rounded-xl py-6 px-5"
+            >
+              <div className="mb-3 h-10 w-10 flex items-center justify-center bg-muted rounded-full">
+                <feature.icon className="h-6 w-6" />
+              </div>
+              <span className="text-lg font-semibold">{feature.title}</span>
+              <p className="mt-1 text-foreground/80 text-[15px]">
+                {feature.description}
+              </p>
             </div>
-            <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-            <p className="text-gray-600">{feature.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-  </section>
-  )
-}
-
-export default Features
+  );
+};
+export default Features;
