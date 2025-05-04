@@ -254,7 +254,9 @@ export default function Page() {
               Discover specialized tools and solutions designed for different aspects of your business
             </p>
             <div className="mt-6">
+            <Suspense fallback={<div className="text-center py-10">Loading Tools....</div>}>
               <CategoryFilter />
+            </Suspense>
             </div>
             <Suspense fallback={<div className="text-center py-10">Loading Tools....</div>}>
             <ProductGrid />
